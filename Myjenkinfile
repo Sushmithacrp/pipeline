@@ -2,10 +2,20 @@ pipeline {
   agent any;
   stages {
     stage ('BUILD') {
+      parallel {
       steps {
-        echo "This is Build stage"
+        echo "This is Build stage in chrome"
         sh 'sleep 5'
       }
+      steps {
+        echo "This is Build stage in Edge"
+        sh 'sleep 5'
+      }
+      steps {
+        echo "This is Build stage in Firefox"
+        sh 'sleep 5'
+      }
+    }
     }
     stage ('DEPLOY') {
       steps {
