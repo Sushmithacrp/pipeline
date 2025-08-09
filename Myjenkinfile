@@ -3,18 +3,24 @@ pipeline {
   stages {
     stage ('BUILD') {
       parallel {
+      stage ('CHROME') {
       steps {
         echo "This is Build stage in chrome"
         sh 'sleep 5'
       }
+      }
+      stage ('EDGE') {
       steps {
         echo "This is Build stage in Edge"
         sh 'sleep 5'
       }
+      }
+      stage ('FIREFOX') {
       steps {
         echo "This is Build stage in Firefox"
         sh 'sleep 5'
       }
+    }
     }
     }
     stage ('DEPLOY') {
